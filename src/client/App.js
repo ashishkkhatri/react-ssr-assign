@@ -19,6 +19,5 @@ export default {
 };
 
 App.propTypes = {
-    route: PropTypes.object,
-    // [route.routes]: PropTypes.object
-}
+    route: PropTypes.object
+};

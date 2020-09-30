@@ -5,7 +5,7 @@ import React from 'react';
 // we get staticContext only from staticRouter  
 const NotFoundpage = ({ staticContext = {}}) => {
     staticContext.notFound = true;
-    return <h1>Oooops, route not found.</h1>
+    return <h1>Oooops, route not found.</h1>;
 };
 
 export default {

@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 
 const LaunchInfo = ({ launch }) => {
     let missionIdList = launch.mission_id.length > 0 ? launch.mission_id.map((id, index) => <li key={index} >{id}</li>) : null;
-    const { rocket: {first_stage: {cores}}, links, mission_name, flight_number, launch_year, launch_success } = launch
+    const { rocket: {first_stage: {cores}}, links, mission_name, flight_number, launch_year, launch_success } = launch;
     const { land_success } = cores[cores.length -1];
     return (
         <div>
@@ -22,7 +22,7 @@ const LaunchInfo = ({ launch }) => {
             </div>
         </div>
     );
-}
+};
 
 export default LaunchInfo;
 

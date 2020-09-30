@@ -27,4 +27,4 @@ export default (req, store, context) => {
             </body>
         </html>
     `;
-}
+};

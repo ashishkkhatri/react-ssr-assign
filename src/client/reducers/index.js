@@ -2,5 +2,7 @@ import { combineReducers } from 'redux';
 import launchesReducer from './launchesReducer';
 
 export default combineReducers({
-    launches: launchesReducer
+    startYear: () => 2006,
+    launches: launchesReducer,
+    endYear: () => new Date().getFullYear()
 });
