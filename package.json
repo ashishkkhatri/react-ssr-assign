@@ -8,10 +8,10 @@
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:buildServer": "webpack --config webpack.server.js --watch",
     "dev:buildClient": "webpack --config webpack.client.js --watch",
-    "start": "npm-run-all --parallel prod:*",
-    "prod:server": "node build/bundle.js",
+    "start": "npm-run-all prod:*",
     "prod:buildServer": "webpack --config webpack.server.prod.js",
-    "prod:buildClient": "webpack --config webpack.client.prod.js"
+    "prod:buildClient": "webpack --config webpack.client.prod.js",
+    "prod:server": "node build/bundle.js"
   },
   "author": "Ashish Khatri",
   "license": "ISC",
@@ -38,7 +38,6 @@
     "react": "16.8.0",
     "react-dom": "16.8.0",
     "react-helmet": "5.2.0",
-    "react-lazyload": "^3.0.0",
     "react-redux": "5.0.6",
     "react-router-config": "1.0.0-beta.4",
     "react-router-dom": "4.2.2",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderToString, renderToNodeStream } from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import Routes from '../client/Routes';
 import { Provider } from 'react-redux'; 
