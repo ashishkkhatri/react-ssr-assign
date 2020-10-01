@@ -1,43 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import styled from 'styled-components';
+import { ImgContainer, Tile, MissionName, LaunchInfoKey, Image } from './StyleComponents';
 
-const ImgContainer = styled.div`
-    background-color: #f2f2f2;
-`;
-
-const Tile = styled.div`
-    background-color: white;
-    width:40%;
-    padding:10px;
-    border-radius: 7px;
-    display: inline-block;
-    margin: 0 10px 10px 10px;
-    @media screen and (max-width: 699px) {
-        width: 100%;
-    }
-    @media screen and (min-width: 1025px) {
-        width: 20%;
-    }
-`;
-
-const MissionName = styled.p`
-    color: #475196;
-    font-weight: 900;
-`;
-
-const LaunchInfoKey = styled.span`
-    font-weight: 900;
-`;
-const Image = styled.img`
-    width: 100%
-`;
 const is_mobile = () => {
     if(typeof window !== 'undefined' && window.document){
         return window.screen.width < 700;
     }
     return false;
- };
+};
 
 const LaunchInfo = ({ launch }) => {
     let missionIdList = launch.mission_id.length > 0 

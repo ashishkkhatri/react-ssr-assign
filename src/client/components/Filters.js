@@ -3,36 +3,7 @@ import { fetchLaunches } from '../actions';
 import Button from './Button';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import styled from 'styled-components';
-
-// const FilterContainer = styled.div`
-//     background-color: white;
-//     border-radius: 7px;
-//     width: 20%;
-//     display: inline-block;
-// `;
-
-const FilterHeader = styled.h3`
-    padding: 15px;
-    margin-bottom: 0;
-`;
-
-const SubHeadingUnderline = styled.hr`
-    margin: auto;
-    width: 70%;
-`;
-
-const FilterSubheading = styled.p`
-    margin: 8px auto;
-    text-align: center;
-`;
-
-const ButtonWrapper = styled.div`
-    width: 50%;
-    display: inline-block;
-    margin: 10px auto;
-    text-align: center;
-`;
+import { FilterHeader, SubHeadingUnderline, FilterSubheading, ButtonWrapper } from './StyleComponents';
 
 class Filters extends Component {
     constructor(props){
