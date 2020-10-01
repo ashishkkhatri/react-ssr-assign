@@ -3,13 +3,43 @@ import { fetchLaunches } from '../actions';
 import Button from './Button';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import styled from 'styled-components';
+
+// const FilterContainer = styled.div`
+//     background-color: white;
+//     border-radius: 7px;
+//     width: 20%;
+//     display: inline-block;
+// `;
+
+const FilterHeader = styled.h3`
+    padding: 15px;
+    margin-bottom: 0;
+`;
+
+const SubHeadingUnderline = styled.hr`
+    margin: auto;
+    width: 70%;
+`;
+
+const FilterSubheading = styled.p`
+    margin: 8px auto;
+    text-align: center;
+`;
+
+const ButtonWrapper = styled.div`
+    width: 50%;
+    display: inline-block;
+    margin: 10px auto;
+    text-align: center;
+`;
 
 class Filters extends Component {
     constructor(props){
         super(props);
         
         this.state = {
-            launch_year: 2006,
+            launch_year: null,
             launch_success: null,
             land_success: null
         };
@@ -31,13 +61,16 @@ class Filters extends Component {
     }
 
     handleYearClick(event){
-        this.setState({launch_year: parseInt(event.target.value, 10)}, () => {
+        let launchYear = parseInt(event.target.value, 10);
+        if (launchYear === this.state.launch_year){
+            launchYear = null;
+        }
+        this.setState({launch_year: launchYear}, () => {
             this.props.fetchLaunches(this.getUrlParam());
         });
     }
 
     handleActivity(event, activity){
-        console.log('this is value:', Boolean(event.target.value), activity);
         let activity_value = event.target.value === 'true';
         if(activity_value === this.state[activity]){
             activity_value = null;
@@ -52,46 +85,49 @@ class Filters extends Component {
         const { startYear, endYear } = this.props;
         for(let year = startYear; year <= endYear; year++) {
             buttonList.push(
-                <Button 
-                    active={this.state.launch_year === year} 
-                    value={year} 
-                    key={year}
-                    onClick={this.handleYearClick}
-                >{year}</Button>
+                <ButtonWrapper key={year}>
+                    <Button 
+                        active={this.state.launch_year === year} 
+                        value={year}
+                        onClick={this.handleYearClick}
+                    >{year}</Button>
+                </ButtonWrapper>
             );
         }
         return buttonList;
     }
 
     render() {
-        console.log('this is state: ', this.state);
         return (
             <div>
-                <h5>Filters</h5>
-                <p>Launch Year</p>
-                {this.yearBtnList()}
-                <p>Successfull Launch</p>
-                <Button 
+                <FilterHeader>Filters</FilterHeader>
+                <FilterSubheading>Launch Year</FilterSubheading>
+                <SubHeadingUnderline />
+                <div>{this.yearBtnList()}</div>
+                <FilterSubheading>Successfull Launch</FilterSubheading>
+                <SubHeadingUnderline />
+                <ButtonWrapper><Button 
                     active={this.state.launch_success === true} 
                     value={true}
                     onClick={event => this.handleActivity(event, 'launch_success')}
-                >True</Button>
-                <Button 
+                >True</Button></ButtonWrapper>
+                <ButtonWrapper><Button 
                     active={this.state.launch_success === false} 
                     value={false}
                     onClick={event => this.handleActivity(event, 'launch_success')}
-                >False</Button>
-                <p>successfull Landing</p>
-                <Button 
+                >False</Button></ButtonWrapper>
+                <FilterSubheading>successfull Landing</FilterSubheading>
+                <SubHeadingUnderline />
+                <ButtonWrapper><Button 
                     active={this.state.land_success === true} 
                     value={true}
                     onClick={event => this.handleActivity(event, 'land_success')}
-                >True</Button>
-                <Button 
+                >True</Button></ButtonWrapper>
+                <ButtonWrapper><Button 
                     active={this.state.land_success === false} 
                     value={false}
                     onClick={event => this.handleActivity(event, 'land_success')}
-                >False</Button>
+                >False</Button></ButtonWrapper>
             </div>
         );
     }

@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
 
     return (
-        <nav>
-            <div>
-                <Link to='/'>SpaceX Launches</Link>
-            </div>
-        </nav>
+        <div>
+            <h1>SpaceX Launch Programs</h1>
+        </div>
     );
 };
 
