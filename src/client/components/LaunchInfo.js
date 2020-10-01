@@ -2,7 +2,8 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { ImgContainer, Tile, MissionName, LaunchInfoKey, Image } from './StyleComponents';
 
-const is_mobile = () => {
+
+export const is_mobile = () => {
     if(typeof window !== 'undefined' && window.document){
         return window.screen.width < 700;
     }
@@ -16,9 +17,12 @@ const LaunchInfo = ({ launch }) => {
     const { rocket: {first_stage: {cores}}, links, mission_name, flight_number, launch_year, launch_success } = launch;
     const { land_success } = cores[cores.length -1];
     return (
+        // <LazyLoad height={200}>
         <Tile>
             <ImgContainer>
-                <Image src={is_mobile() ? links.mission_patch_small : links.mission_patch } />
+                
+                    <Image src={is_mobile() ? links.mission_patch_small : links.mission_patch } />
+                
             </ImgContainer>
             <div>
                 <MissionName>{mission_name} #{flight_number}</MissionName>
@@ -29,6 +33,7 @@ const LaunchInfo = ({ launch }) => {
                 <p><LaunchInfoKey>Successfull landing:</LaunchInfoKey><span>{land_success ? land_success : 'NA'}</span></p>
             </div>
         </Tile>
+        // </LazyLoad>
     );
 };
 

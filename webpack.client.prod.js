@@ -29,13 +29,13 @@ const config = {
         //                             "process.env.SC_DISABLE_SPEEDY": true 
         //                         })
 
-        require('rollup-plugin-replace')({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-            "process.env.SC_DISABLE_SPEEDY": true 
-        }),
-        require('rollup-plugin-commonjs')(),
+        // require('rollup-plugin-replace')({
+        //     'process.env.NODE_ENV': JSON.stringify('production'),
+        //     "process.env.SC_DISABLE_SPEEDY": true 
+        // }),
+        // require('rollup-plugin-commonjs')(),
         // new TerserPlugin({})
-        terser()
+        // terser()
     ],
     // mode: 'production'
 };
